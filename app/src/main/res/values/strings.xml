@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">SafeOrder</string>
+    <string name="sp_name">SafeOrder</string>
+    <string name="e_mail">E-Mail</string>
+    <string name="password">Passwort</string>
+    <string name="button_login">LOGIN</string>
+    <string name="button_register">Registrieren</string>
+    <string name="first_name">Vorname</string>
+    <string name="last_name">Nachname</string>
+    <string name="phone_number">Telefonnummer</string>
+    <string name="choose_payment">Zahlungsweise wählen</string>
+    <string name="restaurant_name">Restaurant1</string>
+    <string name="restaurant_address">Restaurant1_Adresse</string>
+    <string name="filler_text">Lorem Ipsum</string>
+    <string name="search">Suche</string>
+    <string name="favorite">Favorisieren</string>
+    <string name="restaurants_appbar_title">Restaurants</string>
+    <string name="more">Mehr</string>
+    <string name="userprofile_appbar_title">Nutzerprofil</string>
 </resources>
