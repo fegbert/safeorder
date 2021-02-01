@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SafeOrder</string>
+    <string name="app_name">SafeProto</string>
     <string name="sp_name">SafeOrder</string>
     <string name="e_mail">E-Mail</string>
     <string name="password">Passwort</string>
@@ -17,4 +17,8 @@
     <string name="restaurants_appbar_title">Restaurants</string>
     <string name="more">Mehr</string>
     <string name="userprofile_appbar_title">Nutzerprofil</string>
+    <string name="user">Nutzerprofil</string>
+    <string name="settings">Einstellungen</string>
+    <string name="username">Nutzername</string>
+    <string name="favorites">Favoriten</string>
 </resources>
