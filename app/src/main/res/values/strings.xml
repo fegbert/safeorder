@@ -21,4 +21,16 @@
     <string name="settings">Einstellungen</string>
     <string name="username">Nutzername</string>
     <string name="favorites">Favoriten</string>
+    <string name="message_filler">Nachricht</string>
+    <string name="notifications">Benachrichtigungen</string>
+    <string name="btn_logout">LOGOUT</string>
+    <string name="data_privacy">Datenschutz</string>
+    <string name="logout">Logout</string>
+    <string name="help">Hilfe</string>
+    <string name="rate_us">Bewerte uns</string>
+    <string name="imprint">Impressum</string>
+    <string name="quantity">Menge</string>
+    <string name="choose_takeout_time">Wählen Sie eine Abholzeit</string>
+    <string name="price">Preis</string>
+    <string name="total">Gesamtpreis</string>
 </resources>
