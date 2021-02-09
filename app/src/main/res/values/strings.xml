@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SafeProto</string>
+    <string name="app_name">SafeOrder</string>
     <string name="sp_name">SafeOrder</string>
     <string name="e_mail">E-Mail</string>
     <string name="password">Passwort</string>
@@ -17,10 +17,8 @@
     <string name="restaurants_appbar_title">Restaurants</string>
     <string name="more">Mehr</string>
     <string name="userprofile_appbar_title">Nutzerprofil</string>
-    <string name="user">Nutzerprofil</string>
-    <string name="settings">Einstellungen</string>
-    <string name="username">Nutzername</string>
-    <string name="favorites">Favoriten</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="message_filler">Nachricht</string>
     <string name="notifications">Benachrichtigungen</string>
     <string name="btn_logout">LOGOUT</string>
@@ -33,4 +31,8 @@
     <string name="choose_takeout_time">Wählen Sie eine Abholzeit</string>
     <string name="price">Preis</string>
     <string name="total">Gesamtpreis</string>
+    <string name="favorites">Favoriten</string>
+    <string name="username">Nutzername</string>
+    <string name="settings">Einstellungen</string>
+    <string name="user">Nutzer</string>
 </resources>

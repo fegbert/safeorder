@@ -64,7 +64,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="194dp"
                                 android:scaleType="centerCrop"
-                                app:srcCompat="@drawable/dice_2" />
+                                app:srcCompat="@drawable/dice_2"
+                                android:contentDescription="TODO" />
                             <!-- android:contentDescription="@string/content_description_media" -->
 
 
@@ -384,16 +385,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_navigation"
-        style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_navigation"
-        android:layout_gravity="bottom"
-        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
-        />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
