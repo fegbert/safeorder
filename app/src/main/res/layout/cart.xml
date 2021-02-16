@@ -163,7 +163,7 @@
                         android:id="@+id/textView4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginEnd="154dp"
+                        android:layout_marginEnd="150dp"
                         android:paddingTop="10dp"
                         android:paddingBottom="10dp"
                         android:text="@string/total"
