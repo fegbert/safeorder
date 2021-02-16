@@ -39,14 +39,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/card">
+                app:layout_constraintBottom_toTopOf="@id/r_overview_card4">
 
                 <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/card0"
+                        android:id="@+id/r_overview_card1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
@@ -85,7 +85,7 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardx"
+                        android:id="@+id/r_overview_card2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
@@ -124,7 +124,7 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/cardy"
+                        android:id="@+id/r_overview_card3"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
@@ -167,13 +167,13 @@
             </HorizontalScrollView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card"
+                android:id="@+id/r_overview_card4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:layout_marginBottom="8dp"
                 android:elevation="2dp"
-                app:layout_constraintBottom_toTopOf="@id/card2"
+                app:layout_constraintBottom_toTopOf="@id/r_overview_card5"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:clickable="true"
@@ -263,22 +263,22 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="8dp"
-                            android:text="@string/filler_text" />
+                            android:text="@string/filler_text"/>
 
                         <com.google.android.material.button.MaterialButton
                             style="?attr/borderlessButtonStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="32dp"
-                            android:text="@string/filler_text" />
+                            android:text="@string/filler_text"/>
 
                         <CheckBox
                             android:id="@+id/favorite_icon"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:button="@drawable/sl_favorite_black_24dp"
-                            app:buttonTint="@android:color/black"
-                            />
+                            app:buttonTint="@android:color/black"/>
+
                     </LinearLayout>
 
                 </LinearLayout>
@@ -286,7 +286,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card2"
+                android:id="@+id/r_overview_card5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -294,8 +294,7 @@
                 android:elevation="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card"
-                tools:layout_constraintTop_toBottomOf="@id/card"
+                app:layout_constraintTop_toBottomOf="@+id/r_overview_card4"
                 android:clickable="true"
                 android:focusable="true">
 
@@ -401,7 +400,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/card3"
+                android:id="@+id/r_overview_card6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -409,8 +408,7 @@
                 android:elevation="2dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/card2"
-                tools:layout_constraintTop_toBottomOf="@id/card2"
+                app:layout_constraintTop_toBottomOf="@+id/r_overview_card5"
                 android:clickable="true"
                 android:focusable="true">
 
