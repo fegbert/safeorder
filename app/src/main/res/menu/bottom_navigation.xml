@@ -22,8 +22,6 @@
         android:title="Karte"
         app:showAsAction="always"/>
 
-
-
     <item
         android:id="@+id/cartFragment"
         android:enabled="true"
