@@ -10,7 +10,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar_userprofile"
+            android:id="@+id/settings_topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="Einstellungen"
@@ -27,67 +27,72 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         xmlns:tools="http://schemas.android.com/tools">
 
-    <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <com.google.android.material.button.MaterialButton
-            android:drawableTop="@drawable/ic_privacy_tip_white_24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="3dp"
-            android:text="@string/data_privacy"
-            />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_privacy"
+                android:drawableTop="@drawable/ic_privacy_tip_white_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="3dp"
+                android:text="@string/data_privacy"
+                />
 
-        <com.google.android.material.button.MaterialButton
-            android:drawableTop="@drawable/ic_notifications_white_24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="3dp"
-            android:text="@string/notifications"
-            />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_notifs"
+                android:drawableTop="@drawable/ic_notifications_white_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="3dp"
+                android:text="@string/notifications"
+                />
 
-        <com.google.android.material.button.MaterialButton
-            android:drawableTop="@drawable/ic_help_white_24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="3dp"
-            android:text="@string/help"
-            />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_help"
+                android:drawableTop="@drawable/ic_help_white_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="3dp"
+                android:text="@string/help"
+                />
 
-        <com.google.android.material.button.MaterialButton
-            android:drawableTop="@drawable/ic_reviews_white_24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="3dp"
-            android:text="@string/rate_us"
-            />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_rating"
+                android:drawableTop="@drawable/ic_reviews_white_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="3dp"
+                android:text="@string/rate_us"
+                />
 
-        <com.google.android.material.button.MaterialButton
-            android:drawableTop="@drawable/ic_perm_contact_calendar_white_24dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_gravity="fill"
-            android:layout_margin="3dp"
-            android:text="@string/contact"
-            />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/settings_contact"
+                android:drawableTop="@drawable/ic_perm_contact_calendar_white_24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:layout_gravity="fill"
+                android:layout_margin="3dp"
+                android:text="@string/contact"
+                />
 
-    </GridLayout>
+        </GridLayout>
 
     </androidx.core.widget.NestedScrollView>
 

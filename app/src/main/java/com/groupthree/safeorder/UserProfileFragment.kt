@@ -1,12 +1,9 @@
 package com.groupthree.safeorder
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import android.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.google.android.material.appbar.MaterialToolbar
 import com.groupthree.safeorder.databinding.UserProfileBinding
 
 class UserProfileFragment : Fragment() {
@@ -14,9 +11,9 @@ class UserProfileFragment : Fragment() {
         val binding = UserProfileBinding.inflate(inflater)
         val controller = findNavController()
 
-        binding.topAppBarUserprofile.setOnMenuItemClickListener {
+        binding.userProfileTopAppBar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.settings_user -> {
+                R.id.user_profile_settings -> {
                     controller.navigate(R.id.settingsFragment)
                     true
                 }

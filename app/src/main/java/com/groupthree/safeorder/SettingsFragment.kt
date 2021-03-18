@@ -13,7 +13,7 @@ class SettingsFragment : Fragment() {
         val binding = SettingsBinding.inflate(inflater)
         val controller = findNavController()
 
-        binding.topAppBarUserprofile.setOnMenuItemClickListener {
+        binding.settingsTopAppBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.back -> {
                     controller.navigate(R.id.userProfileFragment)

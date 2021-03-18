@@ -11,7 +11,7 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar_restaurantoverview"
+            android:id="@+id/notifs_topAppBar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="Benachrichtigungen"
@@ -33,7 +33,7 @@
             android:orientation="vertical">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/restaurantButton"
+                android:id="@+id/notifs_restaurantButton"
                 android:layout_width="363dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="fill"
@@ -45,20 +45,21 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.card.MaterialCardView
+                android:id="@+id/notifs_counter_card"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 app:cardBackgroundColor="@color/orange_variant"
                 app:cardCornerRadius="50dp"
                 app:cardElevation="15dp"
-                app:layout_constraintEnd_toEndOf="@+id/restaurantButton"
-                app:layout_constraintTop_toTopOf="@+id/restaurantButton" >
+                app:layout_constraintEnd_toEndOf="@+id/notifs_restaurantButton"
+                app:layout_constraintTop_toTopOf="@+id/notifs_restaurantButton" >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/notif_counter_textview"
+                        android:id="@+id/notifs_counter_number"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="1"
@@ -70,8 +71,8 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
             </com.google.android.material.card.MaterialCardView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

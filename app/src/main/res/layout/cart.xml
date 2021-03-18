@@ -44,7 +44,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/rest"
+                        android:id="@+id/cart_restaurant_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -52,13 +52,13 @@
                         android:layout_marginEnd="100dp"
                         android:text="Restaurant"
                         android:textAppearance="?attr/textAppearanceHeadline5"
-                        app:layout_constraintEnd_toStartOf="@+id/time"
+                        app:layout_constraintEnd_toStartOf="@+id/cart_time"
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/time"
+                        android:id="@+id/cart_time"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -70,7 +70,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <LinearLayout
-                        android:id="@+id/linearLayout"
+                        android:id="@+id/cart_linearLayout"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginTop="75dp"
@@ -84,18 +84,18 @@
                             android:layout_height="wrap_content">
 
                             <TextView
-                                android:id="@+id/textView3"
+                                android:id="@+id/cart_product_name"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Produktname"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@+id/btn_plus"
+                                app:layout_constraintEnd_toStartOf="@+id/cart_btn_plus"
                                 app:layout_constraintHorizontal_bias="0.07"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
-                                android:id="@+id/price"
+                                android:id="@+id/cart_product_price"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="9dp"
@@ -105,29 +105,29 @@
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintHorizontal_bias="0.8"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/textView" />
+                                app:layout_constraintTop_toBottomOf="@+id/cart_product_quantity" />
 
                             <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btn_plus"
+                                android:id="@+id/cart_btn_plus"
                                 style="@style/Widget.AppTheme.Button.IconButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 app:icon="@drawable/ic_baseline_add_circle_24"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@+id/textView"
+                                app:layout_constraintEnd_toStartOf="@+id/cart_product_quantity"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <TextView
-                                android:id="@+id/textView"
+                                android:id="@+id/cart_product_quantity"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Mengenanzahl"
                                 app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toStartOf="@+id/btn_minus"
+                                app:layout_constraintEnd_toStartOf="@+id/cart_btn_minus"
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <com.google.android.material.button.MaterialButton
-                                android:id="@+id/btn_minus"
+                                android:id="@+id/cart_btn_minus"
                                 style="@style/Widget.AppTheme.Button.IconButton"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -160,7 +160,7 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/textView4"
+                        android:id="@+id/cart_total"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="150dp"
@@ -169,20 +169,20 @@
                         android:text="@string/total"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/textView2"
+                        app:layout_constraintEnd_toStartOf="@+id/cart_total_price"
                         app:layout_constraintHorizontal_bias="0.64"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView2"
+                        android:id="@+id/cart_total_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Gesamtpreis_Filler"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.95"
-                        app:layout_constraintStart_toEndOf="@+id/textView4"
+                        app:layout_constraintStart_toEndOf="@+id/cart_total"
                         app:layout_constraintTop_toTopOf="parent" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>

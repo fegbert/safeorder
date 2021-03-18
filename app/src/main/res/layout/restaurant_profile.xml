@@ -30,7 +30,7 @@
             android:orientation="vertical">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/r_profile_card1"
+            android:id="@+id/r_profile_restaurant_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -54,6 +54,7 @@
 
                     <!-- Title, secondary and supporting text -->
                     <TextView
+                        android:id="@+id/r_profile_restaurantName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/restaurant_name"
@@ -62,6 +63,7 @@
                 </LinearLayout>
 
                 <TextView
+                    android:id="@+id/r_profile_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -76,11 +78,10 @@
         <GridLayout xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:columnCount="2"
-            android:rowCount="5">
+            android:columnCount="2">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/r_profile_card2"
+                android:id="@+id/r_profile_product_card"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -98,6 +99,7 @@
 
                     <!-- Media -->
                     <ImageView
+                        android:id="@+id/product_pic"
                         android:layout_width="match_parent"
                         android:layout_height="194dp"
                         android:contentDescription="TODO"
@@ -120,6 +122,7 @@
                             android:paddingEnd="15dp"/>
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/r_profile_addToCart"
                             style="@style/Widget.AppTheme.Button.IconButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"

@@ -9,7 +9,7 @@
     <string name="last_name">Nachname</string>
     <string name="phone_number">Telefonnummer</string>
     <string name="choose_payment">Zahlungsweise wählen</string>
-    <string name="restaurant_name">Restaurant1</string>
+    <string name="restaurant_name">Restaurant</string>
     <string name="restaurant_address">Restaurant1_Adresse</string>
     <string name="filler_text">Lorem Ipsum</string>
     <string name="search">Suche</string>
@@ -32,10 +32,12 @@
     <string name="price">Preis</string>
     <string name="total">Gesamtpreis</string>
     <string name="favorites">Favoriten</string>
-    <string name="username">Nutzername</string>
+    <string name="fullname">Nutzername</string>
     <string name="settings">Einstellungen</string>
     <string name="user">Nutzer</string>
     <string name="product_name">Name_Produkt</string>
     <string name="order">Bestellung aufgeben</string>
     <string name="back">Zurück</string>
+    <string name="add_to_cart">Zum Warenkorb hinzufügen</string>
+    <string name="quantity_number">Mengenanzahl</string>
 </resources>
