@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -106,6 +105,7 @@
                 android:textAllCaps="true"
                 android:textSize="25sp"
                 android:textStyle="bold"
+                android:textColor="@color/orange_variant"
                 app:layout_constraintBottom_toTopOf="@id/user_profile_favorite_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
