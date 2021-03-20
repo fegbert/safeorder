@@ -18,9 +18,6 @@
             app:menu="@menu/restaurant_overview_top_app_bar"
             app:title="@string/restaurants_appbar_title" />
 
-        <androidx.appcompat.widget.SearchView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
 
     </com.google.android.material.appbar.AppBarLayout>
 
