@@ -14,7 +14,7 @@ interface UserDAO {
     @Update
     fun updateUserInfo(user: User)
 
-    @Query("SELECT userID FROM user WHERE userMail = (:mail ) AND userPassword = (:password)")
+    @Query("SELECT * FROM user WHERE userMail = (:mail ) AND userPassword = (:password)")
     fun loginUser(mail : String, password : String) : User
 
 
