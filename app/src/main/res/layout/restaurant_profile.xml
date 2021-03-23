@@ -121,12 +121,6 @@
                             android:textAppearance="?attr/textAppearanceHeadline6"
                             android:paddingEnd="15dp"/>
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/r_profile_addToCart"
-                            style="@style/Widget.AppTheme.Button.IconButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:icon="@drawable/ic_add_shopping_cart_white_24dp" />
 
                     </LinearLayout>
 
@@ -174,11 +168,6 @@
                         android:textAppearance="?attr/textAppearanceHeadline6"
                         android:paddingEnd="15dp"/>
 
-                    <com.google.android.material.button.MaterialButton
-                        style="@style/Widget.AppTheme.Button.IconButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:icon="@drawable/ic_add_shopping_cart_white_24dp" />
 
                 </LinearLayout>
 
@@ -226,11 +215,6 @@
                             android:textAppearance="?attr/textAppearanceHeadline6"
                             android:paddingEnd="15dp"/>
 
-                        <com.google.android.material.button.MaterialButton
-                            style="@style/Widget.AppTheme.Button.IconButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:icon="@drawable/ic_add_shopping_cart_white_24dp" />
 
                     </LinearLayout>
 
@@ -278,11 +262,6 @@
                             android:textAppearance="?attr/textAppearanceHeadline6"
                             android:paddingEnd="15dp"/>
 
-                        <com.google.android.material.button.MaterialButton
-                            style="@style/Widget.AppTheme.Button.IconButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:icon="@drawable/ic_add_shopping_cart_white_24dp"/>
 
                     </LinearLayout>
 
