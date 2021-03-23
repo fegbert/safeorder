@@ -19,7 +19,6 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-
     <!-- Note: A RecyclerView can also be used -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -37,7 +36,8 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
                 android:elevation="2dp"
-                app:layout_constraintBottom_toTopOf="@+id/favoritenText"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/settings_layout"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -96,130 +96,86 @@
 
             </com.google.android.material.card.MaterialCardView>
 
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/favoritenText"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/favorites"
-                android:textAllCaps="true"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:textColor="@color/orange_variant"
-                app:layout_constraintBottom_toTopOf="@id/user_profile_favorite_card"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/user_profile_favorite_card"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+            <GridLayout
                 android:layout_margin="8dp"
-                android:layout_marginTop="16dp"
-                android:elevation="2dp"
+                app:layout_constraintTop_toBottomOf="@+id/user_profile_info_card"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/favoritenText">
+                android:id="@+id/settings_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+                <TextView
+                    android:text="@string/settings"
+                    android:textColor="@color/orange_variant"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:textSize="20dp"
+                    android:layout_gravity="center"
+                    android:layout_margin="4dp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/settings_privacy"
+                    android:drawableTop="@drawable/ic_privacy_tip_white_24dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="3dp"
+                    android:text="@string/data_privacy"
+                    />
 
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/settings_notifs"
+                    android:drawableTop="@drawable/ic_notifications_white_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="3dp"
+                    android:text="@string/notifications"
+                    />
 
-                        <GridLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/settings_help"
+                    android:drawableTop="@drawable/ic_help_white_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="3dp"
+                    android:text="@string/help"
+                    />
 
-                            <!-- Media -->
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="194dp"
-                                android:scaleType="centerCrop"
-                                app:srcCompat="@drawable/dice_2" />
-                            <!-- android:contentDescription="@string/content_description_media" -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/settings_rating"
+                    android:drawableTop="@drawable/ic_reviews_white_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="3dp"
+                    android:text="@string/rate_us"
+                    />
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="194dp"
-                                android:scaleType="centerCrop"
-                                app:srcCompat="@drawable/dice_2" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/settings_contact"
+                    android:drawableTop="@drawable/ic_perm_contact_calendar_white_24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="3dp"
+                    android:text="@string/contact"
+                    />
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="194dp"
-                                android:scaleType="centerCrop"
-                                app:srcCompat="@drawable/dice_2" />
-
-                        </GridLayout>
-
-                    </HorizontalScrollView>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="16dp">
-
-                        <!-- Title, secondary and supporting text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/restaurant_name"
-                            android:textAppearance="?attr/textAppearanceHeadline6" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:text="@string/restaurant_address"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="16dp"
-                            android:text="@string/filler_text"
-                            android:textAppearance="?attr/textAppearanceBody2"
-                            android:textColor="?android:attr/textColorSecondary" />
-
-                    </LinearLayout>
-
-                    <!-- Buttons -->
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="8dp"
-                        android:orientation="horizontal">
-
-                        <com.google.android.material.button.MaterialButton
-                            style="?attr/borderlessButtonStyle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="8dp"
-                            android:text="@string/filler_text" />
-
-                        <com.google.android.material.button.MaterialButton
-                            style="?attr/borderlessButtonStyle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/filler_text" />
-
-                        <CheckBox
-                            android:id="@+id/favorite_icon3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:button="@drawable/sl_favorite_black_24dp"
-                            app:buttonTint="@android:color/black" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
+            </GridLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
