@@ -13,7 +13,7 @@ class UserProfileFragment : Fragment() {
 
         binding.userProfileTopAppBar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.user_profile_settings -> {
+                R.id.back -> {
                     controller.navigate(R.id.settingsFragment)
                     true
                 }

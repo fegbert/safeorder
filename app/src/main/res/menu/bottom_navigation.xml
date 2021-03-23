@@ -6,6 +6,7 @@
         android:enabled="true"
         android:icon="@drawable/ic_local_dining_white_24dp"
         android:title="Restaurants"
+        android:menuCategory="secondary"
         app:showAsAction="always"/>
 
     <item
@@ -13,6 +14,7 @@
         android:enabled="true"
         android:icon="@drawable/ic_location_on_white_24dp"
         android:title="Karte"
+        android:menuCategory="secondary"
         app:showAsAction="always"/>
 
     <item
@@ -20,6 +22,7 @@
         android:enabled="true"
         android:icon="@drawable/ic_notifications_white_24dp"
         android:title="Karte"
+        android:menuCategory="secondary"
         app:showAsAction="always"/>
 
     <item
@@ -27,6 +30,7 @@
         android:enabled="true"
         android:icon="@drawable/ic_shopping_cart_white_24dp"
         android:title="Warenkorb"
+        android:menuCategory="secondary"
         app:showAsAction="always"/>
 
     <item
@@ -34,5 +38,6 @@
         android:enabled="true"
         android:icon="@drawable/ic_person_white_24dp"
         android:title="@string/user"
+        android:menuCategory="secondary"
         app:showAsAction="always"/>
 </menu>
