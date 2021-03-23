@@ -9,7 +9,7 @@ import androidx.room.Update
 interface UserDAO {
 
     @Insert
-    fun registerUser(user: User)
+    suspend fun registerUser(user: User)
 
     @Update
     fun updateUserInfo(user: User)
@@ -17,6 +17,7 @@ interface UserDAO {
     @Query("SELECT * FROM user WHERE userMail = (:mail ) AND userPassword = (:password)")
     fun loginUser(mail : String, password : String) : User
 
-
+    @Query("SELECT * FROM user")
+    fun getAllUsers() : List<User>
 
 }

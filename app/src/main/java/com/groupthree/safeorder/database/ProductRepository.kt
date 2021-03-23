@@ -9,5 +9,5 @@ class ProductRepository(private val productDAO: ProductDAO) {
     fun getProduct(productID : Int) = productDAO.getProduct(productID)
 
     @WorkerThread
-    fun insert(product: Product) = productDAO.insertProduct(product)
+    suspend fun insertProduct(product: Product) = productDAO.insertProduct(product)
 }
