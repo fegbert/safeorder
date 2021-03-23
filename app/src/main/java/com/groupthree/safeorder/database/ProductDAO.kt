@@ -14,8 +14,8 @@ interface ProductDAO {
     @Query("SELECT * FROM Product ORDER BY productID DESC")
     fun getAllProducts(): List<Product>
 
-    @Query("SELECT * FROM Product WHERE (:productID) = productID")
-    fun getproductInfos(productID : Int) : Product
+    @Query("SELECT * FROM Product WHERE :productID = productID")
+    fun getProduct(productID : Int) : Product
 
 
 }

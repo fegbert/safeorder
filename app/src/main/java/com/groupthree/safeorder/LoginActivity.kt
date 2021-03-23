@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)
-
+        
         login_register_btn.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
