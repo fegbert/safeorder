@@ -7,10 +7,15 @@ import androidx.navigation.fragment.findNavController
 import com.groupthree.safeorder.databinding.UserProfileBinding
 
 class UserProfileFragment : Fragment() {
+/*
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = UserProfileBinding.inflate(inflater)
         val controller = findNavController()
 
+        return binding.root
+    }
+*/
+/*
         binding.userProfileTopAppBar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.back -> {
@@ -22,5 +27,4 @@ class UserProfileFragment : Fragment() {
         }
 
         return binding.root
-    }
-}
+    }*/*/
