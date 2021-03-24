@@ -1,278 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <data>
+        <variable
+            name="restaurantViewModel"
+            type="com.groupthree.safeorder.database.RestaurantViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar_restaurantoverview"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:layout_scrollFlags="scroll|enterAlways|snap"
-            app:title="Name des Restaurants" />
+            android:layout_height="wrap_content">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar_restaurantoverview"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways|snap"
+                app:title="Name des Restaurants" />
 
-    <!-- Note: A RecyclerView can also be used -->
-    <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        </com.google.android.material.appbar.AppBarLayout>
 
-        <LinearLayout
+        <!-- Note: A RecyclerView can also be used -->
+        <androidx.core.widget.NestedScrollView xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/r_profile_restaurant_card"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginBottom="8dp"
-            android:clickable="true"
-            android:elevation="2dp"
-            android:focusable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="16dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <!-- Title, secondary and supporting text -->
-                    <TextView
-                        android:id="@+id/r_profile_restaurantName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/restaurant_name"
-                        android:textAppearance="?attr/textAppearanceHeadline6" />
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/r_profile_address"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="8dp"
-                    android:text="@string/restaurant_address"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
-
-            </LinearLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <GridLayout xmlns:tools="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:columnCount="2">
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/r_profile_product_card"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_marginBottom="8dp"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <!-- Media -->
-                    <ImageView
-                        android:id="@+id/product_pic"
-                        android:layout_width="match_parent"
-                        android:layout_height="194dp"
-                        android:contentDescription="TODO"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/dice_2" />
-                    <!-- android:contentDescription="@string/content_description_media" -->
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp">
-
-                        <!-- Title, secondary and supporting text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/product_name"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            android:paddingEnd="15dp"/>
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-            android:id="@+id/r_profile_card3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_marginBottom="8dp"
-            android:clickable="true"
-            android:elevation="2dp"
-            android:focusable="true"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <!-- Media -->
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="194dp"
-                    android:contentDescription="TODO"
-                    android:scaleType="centerCrop"
-                    app:srcCompat="@drawable/dice_2" />
-                <!-- android:contentDescription="@string/content_description_media" -->
-
-                <LinearLayout
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/r_profile_restaurant_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:layout_margin="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:clickable="true"
+                    android:elevation="2dp"
+                    android:focusable="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
 
-                    <!-- Title, secondary and supporting text -->
-                    <TextView
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <!-- Title, secondary and supporting text -->
+                            <TextView
+                                android:id="@+id/r_profile_restaurantName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/restaurant_name"
+                                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/r_profile_address"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/restaurant_address"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="?android:attr/textColorSecondary" />
+
+                    </LinearLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <GridLayout xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:columnCount="2">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/r_profile_product_card"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/product_name"
-                        android:textAppearance="?attr/textAppearanceHeadline6"
-                        android:paddingEnd="15dp"/>
+                        android:layout_margin="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:clickable="true"
+                        android:elevation="2dp"
+                        android:focusable="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- Media -->
+                            <ImageView
+                                android:id="@+id/product_pic"
+                                android:layout_width="match_parent"
+                                android:layout_height="194dp"
+                                android:contentDescription="TODO"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/dice_2" />
+                            <!-- android:contentDescription="@string/content_description_media" -->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="16dp">
+
+                                <!-- Title, secondary and supporting text -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/product_name"
+                                    android:textAppearance="?attr/textAppearanceHeadline6"
+                                    android:paddingEnd="15dp" />
 
 
-                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/r_profile_card3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:clickable="true"
+                        android:elevation="2dp"
+                        android:focusable="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- Media -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="194dp"
+                                android:contentDescription="TODO"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/dice_2" />
+                            <!-- android:contentDescription="@string/content_description_media" -->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="16dp">
+
+                                <!-- Title, secondary and supporting text -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/product_name"
+                                    android:textAppearance="?attr/textAppearanceHeadline6"
+                                    android:paddingEnd="15dp" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/r_profile_card4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:clickable="true"
+                        android:elevation="2dp"
+                        android:focusable="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- Media -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="194dp"
+                                android:contentDescription="TODO"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/dice_2" />
+                            <!-- android:contentDescription="@string/content_description_media" -->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="16dp">
+
+                                <!-- Title, secondary and supporting text -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/product_name"
+                                    android:textAppearance="?attr/textAppearanceHeadline6"
+                                    android:paddingEnd="15dp" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/r_profile_card5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:clickable="true"
+                        android:elevation="2dp"
+                        android:focusable="true"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <!-- Media -->
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="194dp"
+                                android:contentDescription="TODO"
+                                android:scaleType="centerCrop"
+                                app:srcCompat="@drawable/dice_2" />
+                            <!-- android:contentDescription="@string/content_description_media" -->
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="16dp">
+
+                                <!-- Title, secondary and supporting text -->
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/product_name"
+                                    android:textAppearance="?attr/textAppearanceHeadline6"
+                                    android:paddingEnd="15dp" />
+
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </GridLayout>
 
             </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.core.widget.NestedScrollView>
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/r_profile_card4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_marginBottom="8dp"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <!-- Media -->
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="194dp"
-                        android:contentDescription="TODO"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/dice_2" />
-                    <!-- android:contentDescription="@string/content_description_media" -->
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp">
-
-                        <!-- Title, secondary and supporting text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/product_name"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            android:paddingEnd="15dp"/>
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/r_profile_card5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="8dp"
-                android:layout_marginBottom="8dp"
-                android:clickable="true"
-                android:elevation="2dp"
-                android:focusable="true"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <!-- Media -->
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="194dp"
-                        android:contentDescription="TODO"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/dice_2" />
-                    <!-- android:contentDescription="@string/content_description_media" -->
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="16dp">
-
-                        <!-- Title, secondary and supporting text -->
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/product_name"
-                            android:textAppearance="?attr/textAppearanceHeadline6"
-                            android:paddingEnd="15dp"/>
-
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-        </GridLayout>
-
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>
