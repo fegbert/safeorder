@@ -5,12 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = arrayOf(Restaurant::class, User::class, Product::class), version = 1)
+@Database(entities = arrayOf(Restaurant::class, User::class, Product::class, CartItem::class), version = 2)
 abstract class SafeOrderDB : RoomDatabase() {
 
     abstract fun restaurantDAO(): RestaurantDAO
     abstract fun userDAO(): UserDAO
     abstract fun productDAO(): ProductDAO
+    abstract fun cartItemDAO() : CartItemDAO
+
+
 
     companion object {
 
@@ -29,8 +32,7 @@ abstract class SafeOrderDB : RoomDatabase() {
                         context.applicationContext,
                         SafeOrderDB::class.java,
                         "safeorder_database"
-                    )
-                        .fallbackToDestructiveMigration() // leads to loss of all data in tables,
+                    ).fallbackToDestructiveMigration() // leads to loss of all data in tables,
                         // if DB update required, new MigrationStrategy is needed!!
                         .build()
                     INSTANCE = instance
