@@ -15,6 +15,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -23,6 +24,11 @@ import com.google.android.libraries.maps.GoogleMap
 import com.google.android.libraries.maps.OnMapReadyCallback
 import com.google.android.libraries.maps.SupportMapFragment
 import com.google.android.libraries.maps.model.*
+import com.groupthree.safeorder.database.Restaurant
+import com.groupthree.safeorder.database.RestaurantViewModel
+import com.groupthree.safeorder.database.RestaurantViewModelFactory
+import com.groupthree.safeorder.database.SafeOrderDB
+import com.groupthree.safeorder.databinding.MapsBinding
 
 class MapsFragment : Fragment() {
     private var map : GoogleMap? = null
@@ -31,6 +37,7 @@ class MapsFragment : Fragment() {
     private lateinit var fusedLocationProviderClient : FusedLocationProviderClient
     private var lastKnownLocation : Location? = null
     private val defaultLocation = LatLng(51.0230052,7.5610071)
+    private var resList : List<Restaurant>? = null
     private val callback = OnMapReadyCallback { googleMap ->
         map = googleMap
 
@@ -40,8 +47,26 @@ class MapsFragment : Fragment() {
         addLocations()
     }
 
+    private fun getLatLng(coords : String) : LatLng {
+        val array = coords.split(";")
+        return LatLng(array[0].toDouble(), array[1].toDouble())
+    }
+
     private fun addLocations() {
         //Get locations from Database
+        if (resList != null) {
+            for (restaurant : Restaurant in resList!!) {
+                val coords = getLatLng(restaurant.address.coordinates)
+                val marker = map?.addMarker(MarkerOptions().
+                    position(coords).
+                    title(restaurant.restaurantName).
+                    snippet("${restaurant.address.street} ${restaurant.address.number}"))
+                marker?.tag = restaurant.restaurantID
+                marker?.showInfoWindow()
+            }
+        }
+
+        /*
         val ottimo = LatLng(50.98653,7.4092875)
         val marker = map?.addMarker(MarkerOptions().
                 position(ottimo).
@@ -50,15 +75,15 @@ class MapsFragment : Fragment() {
                 icon(getBitmap(R.drawable.ic_favorite_white_24dp)))
         marker?.tag = 1 // ID from database
         marker?.showInfoWindow()
+        */
 
         map?.setOnMarkerClickListener { marker ->
             val id = marker.tag as? Int
-            // get Data from database where id = id
             Toast.makeText(context, "${marker.title} has been clicked.", Toast.LENGTH_SHORT).show()
-            // switch to restaurant profile
-            // create bundle with required information for restaurauntprofilefragment
+            val bundleID = Bundle()
+            bundleID.putInt("res_id", id!!)
             val nav= findNavController()
-            nav.navigate(R.id.restaurantProfileFragment)
+            nav.navigate(R.id.restaurantProfileFragment, bundleID)
             return@setOnMarkerClickListener false
         }
 
@@ -75,7 +100,17 @@ class MapsFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.maps, container, false)
+        val binding = MapsBinding.inflate(inflater)
+
+        val app = requireActivity().application
+        val dataSource = SafeOrderDB.getDatabase(requireContext()).restaurantDAO()
+        val viewModelFactory = RestaurantViewModelFactory(dataSource, app)
+        val restaurantViewModel = ViewModelProvider(this, viewModelFactory).get(RestaurantViewModel::class.java)
+        binding.lifecycleOwner = this
+        //binding.restaurantViewModel = restaurantViewModel
+        resList = restaurantViewModel.getRestaurants()
+
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

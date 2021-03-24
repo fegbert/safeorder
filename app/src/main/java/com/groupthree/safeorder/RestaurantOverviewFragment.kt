@@ -16,8 +16,6 @@ import com.groupthree.safeorder.database.RestaurantViewModel
 import com.groupthree.safeorder.database.RestaurantViewModelFactory
 import com.groupthree.safeorder.database.SafeOrderDB
 import com.groupthree.safeorder.databinding.RestaurantOverviewBinding
-import com.groupthree.safeorder.databinding.SettingsBinding
-import kotlinx.coroutines.launch
 
 class RestaurantOverviewFragment : Fragment() {
 
