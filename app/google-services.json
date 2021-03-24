@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "476861287206",
+    "firebase_url": "https://safeorderapp-303c8-default-rtdb.firebaseio.com",
+    "project_id": "safeorderapp-303c8",
+    "storage_bucket": "safeorderapp-303c8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476861287206:android:69076a178d54c705cd8fe7",
+        "android_client_info": {
+          "package_name": "com.groupthree.safeorder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476861287206-e8hp5j8eo5osdrtr0i4645a3pe881k5o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlHX_4Q9nsMHTmT94pXAAeVfZh5VpgUUo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "476861287206-e8hp5j8eo5osdrtr0i4645a3pe881k5o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
