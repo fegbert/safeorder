@@ -19,6 +19,9 @@ class ProductProfileViewModel(private val productRepository: ProductRepository) 
 
     fun getProduct(productID : Int) = productRepository.getProduct(productID)
 
+    fun clearProducts() = viewModelScope.launch {
+        productRepository.clearAll()
+    }
 
 }
 

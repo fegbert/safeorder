@@ -18,12 +18,13 @@ interface RestaurantDAO {
     @Query("SELECT * FROM Restaurant")
     fun getRestaurantsWithProducts() : List<RestaurantWithProducts>
 
+    @Query("DELETE FROM Restaurant")
+    suspend fun clearAll()
+
     /*
     @Transaction
     @Query("SELECT * FROM Restaurant WHERE (:restaurantID) = restaurantID")
     fun getProductsOfOneRestaurant(restaurantID : Int): List<RestaurantWithProducts>
     */
-
-
 
 }

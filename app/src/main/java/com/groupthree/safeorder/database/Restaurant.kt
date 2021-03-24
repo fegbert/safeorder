@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey
 data class Restaurant(
 
     @PrimaryKey(autoGenerate = true)
-    var restaurantID : Int,
+    var restaurantID : Int = 0,
 
     @ColumnInfo
     var restaurantName : String,
