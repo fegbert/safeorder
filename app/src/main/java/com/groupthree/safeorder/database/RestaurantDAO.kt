@@ -9,7 +9,7 @@ import androidx.room.Transaction
 interface RestaurantDAO {
 
     @Insert
-    fun restaurantInsert(restaurant: Restaurant)
+    suspend fun insertRestaurant(restaurant: Restaurant)
 
     @Query("SELECT * FROM Restaurant ORDER BY restaurantID DESC")
     fun getAllRestaurants() : List<Restaurant>

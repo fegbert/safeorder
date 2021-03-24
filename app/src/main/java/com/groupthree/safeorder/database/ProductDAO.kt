@@ -9,13 +9,13 @@ import androidx.room.Query
 interface ProductDAO {
 
     @Insert
-    fun insertProduct(product: Product)
+    suspend fun insertProduct(product: Product)
 
     @Query("SELECT * FROM Product ORDER BY productID DESC")
     fun getAllProducts(): List<Product>
 
-    @Query("SELECT * FROM Product WHERE (:productID) = productID")
-    fun getproductInfos(productID : Int) : Product
+    @Query("SELECT * FROM Product WHERE :productID = productID")
+    fun getProduct(productID : Int) : Product
 
 
 }

@@ -17,7 +17,6 @@
     <string name="restaurants_appbar_title">Restaurants</string>
     <string name="more">Mehr</string>
     <string name="userprofile_appbar_title">Nutzerprofil</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="message_filler">Nachricht</string>
     <string name="notifications">Benachrichtigungen</string>
@@ -40,4 +39,5 @@
     <string name="back">Zurück</string>
     <string name="add_to_cart">Zum Warenkorb hinzufügen</string>
     <string name="quantity_number">Mengenanzahl</string>
+    <string name="map_id">87916eb08fcb319d</string>
 </resources>
