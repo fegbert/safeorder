@@ -8,65 +8,23 @@ import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
 
-class RestaurantViewModel(val database : RestaurantDAO, application: Application) : AndroidViewModel(application) {
-    private var restaurants = MutableLiveData<List<Restaurant>?>()
-    private var restaurantsWithProducts = MutableLiveData<List<RestaurantWithProducts>?>()
+class RestaurantViewModel(private val restaurantRepo : RestaurantRepository) : ViewModel() {
+    var allRestaurants : List<Restaurant> = restaurantRepo.allRestaurants
+    var allRestaurantsWithProducts : List<RestaurantWithProducts> = restaurantRepo.allRestaurantsWithProducts
 
-    init {
-        initialize()
-    }
-
-    private fun initialize() {
-        viewModelScope.launch() {
-            restaurants.value = getRestaurantsFromDatabase()
-            restaurantsWithProducts.value = getRestaurantsWithProductsFromDatabase()
-        }
-    }
-
-    private fun getRestaurantsFromDatabase() : List<Restaurant>?{
-        var restaurants : List<Restaurant>? = null
-        viewModelScope.launch(Dispatchers.IO) {
-            restaurants = database.getAllRestaurants()
-            Log.w("DoIGetStuff", "${restaurants?.size}")
-        }
-        return restaurants
-    }
-
-    private fun getRestaurantsWithProductsFromDatabase() : List<RestaurantWithProducts>? {
-        var restaurants : List<RestaurantWithProducts>? = null
-        viewModelScope.launch(Dispatchers.IO) {
-            restaurants = database.getRestaurantsWithProducts()
-        }
-        return restaurants
-    }
-
-    fun getRestaurants() : List<Restaurant>?{
-        return restaurants.value
-    }
-
-    fun getRestaurantsWithProducts() : List<RestaurantWithProducts>? {
-        return restaurantsWithProducts.value
-    }
-
-    fun getRestaurantByID(restaurantID : Int) : Restaurant? {
-        val res = restaurants.value
-        if (res != null) {
-            for (r: Restaurant in res) {
-                if (r.restaurantID == restaurantID) {
-                    return r
-                }
+    fun getRestaurantWithProductsByID(restaurantID : Int) : RestaurantWithProducts? {
+        for (r : RestaurantWithProducts in allRestaurantsWithProducts) {
+            if (r.restaurant.restaurantID == restaurantID) {
+                return r
             }
         }
         return null
     }
 
-    fun getRestaurantWithProductsByID(restaurantID : Int) : RestaurantWithProducts? {
-        val res = restaurantsWithProducts.value
-        if (res != null) {
-            for (r : RestaurantWithProducts in res) {
-                if (r.restaurant.restaurantID == restaurantID) {
-                    return r
-                }
+    fun getRestaurantByID(restaurantID : Int) : Restaurant? {
+        for (r: Restaurant in allRestaurants) {
+            if (r.restaurantID == restaurantID) {
+                return r
             }
         }
         return null
@@ -74,15 +32,15 @@ class RestaurantViewModel(val database : RestaurantDAO, application: Application
 
     fun insertRestaurant(restaurant : Restaurant) {
         viewModelScope.launch(Dispatchers.IO) {
-            database.insertRestaurant(restaurant)
+            restaurantRepo.insertRestaurant(restaurant)
         }
     }
 }
 
-class RestaurantViewModelFactory(private val dataSource : RestaurantDAO, private val application: Application) : ViewModelProvider.Factory {
+class RestaurantViewModelFactory(private val dataSource : RestaurantRepository) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(RestaurantViewModel::class.java)) {
-            return RestaurantViewModel(dataSource, application) as T
+            return RestaurantViewModel(dataSource) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

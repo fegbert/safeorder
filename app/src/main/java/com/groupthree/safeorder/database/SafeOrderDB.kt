@@ -6,9 +6,10 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(Restaurant::class, User::class, Product::class, CartItem::class), version = 4)
+@Database(entities = [Restaurant::class, User::class, Product::class, CartItem::class], version = 4)
 abstract class SafeOrderDB : RoomDatabase() {
 
     abstract fun restaurantDAO(): RestaurantDAO
@@ -22,7 +23,7 @@ abstract class SafeOrderDB : RoomDatabase() {
         override fun onCreate(db: SupportSQLiteDatabase) {
             super.onCreate(db)
             INSTANCE?.let { database ->
-                scope.launch {
+                scope.launch(Dispatchers.IO) {
                     val restaurantDAO = database.restaurantDAO()
                     val userDAO = database.userDAO()
                     val productDAO = database.productDAO()

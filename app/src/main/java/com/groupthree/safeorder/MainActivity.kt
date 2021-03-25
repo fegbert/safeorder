@@ -18,6 +18,7 @@ import kotlinx.android.synthetic.main.user_profile.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -50,6 +51,12 @@ class MainActivity : AppCompatActivity() {
         db = FirebaseDatabase.getInstance()
         dbRef = db?.reference!!.child("Profil")
         loadProfil()*/
+
+    }
+
+    private fun deleteDatabaseFile(databaseName : String) {
+        val databases : File = File(applicationInfo.dataDir + "/databases")
+        val db : File = File(databases, databaseName)
 
     }
 

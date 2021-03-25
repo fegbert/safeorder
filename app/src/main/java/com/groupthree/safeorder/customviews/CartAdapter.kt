@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
-import com.groupthree.safeorder.CartViewModel
+import com.groupthree.safeorder.database.CartViewModel
 import com.groupthree.safeorder.R
 import com.groupthree.safeorder.database.CartItem
 import androidx.recyclerview.widget.ListAdapter

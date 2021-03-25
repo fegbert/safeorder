@@ -1,4 +1,4 @@
-package com.groupthree.safeorder
+package com.groupthree.safeorder.database
 
 import androidx.lifecycle.*
 import com.groupthree.safeorder.database.CartItem
@@ -8,7 +8,7 @@ import java.lang.IllegalArgumentException
 
 class CartViewModel(private val cartItemRepository: CartItemRepository) : ViewModel() {
 
-    val allCartItems: LiveData<List<CartItem>> = cartItemRepository.allCartItems.asLiveData()
+    val allCartItems: LiveData<List<CartItem>> = cartItemRepository.allCartItems as LiveData<List<CartItem>>
 
     fun insertCartItem(cartItem: CartItem) = viewModelScope.launch {
         cartItemRepository.insertCartItem(cartItem)
