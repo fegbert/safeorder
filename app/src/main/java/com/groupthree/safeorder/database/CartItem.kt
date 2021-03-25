@@ -7,28 +7,19 @@ import androidx.room.PrimaryKey
 @Entity
 data class CartItem(
     @PrimaryKey(autoGenerate = true)
-    var cartID : Int = 0,
+    var cartID : Int,
 
     @ColumnInfo
     var productID : Int,
 
     @ColumnInfo
-    var units : Int
-){
+    var productPrice : Int,
+
+    @ColumnInfo
+    var units : Int,
+
+    var restaurantOfProductID : Int
+)
 
 
 
-}
-
-/*
-
-@Entity(tableName = "notes_table")
-data class Note (var item: String,
-        @ColumnInfo(name = "priority")
-        var priority: String) {
-    @PrimaryKey(autoGenerate = true)
-    var id: Long = 0,
-    //.....
-}
-
- */

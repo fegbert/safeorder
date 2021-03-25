@@ -5,12 +5,11 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-
 @Entity
 data class Restaurant(
 
-    @PrimaryKey(autoGenerate = true)
-    var restaurantID : Int = 0,
+    @PrimaryKey
+    var restaurantID : Int,
 
     @ColumnInfo
     var restaurantName : String,

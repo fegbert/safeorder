@@ -8,7 +8,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = arrayOf(Restaurant::class, User::class, Product::class, CartItem::class), version = 2)
+@Database(entities = arrayOf(Restaurant::class, User::class, Product::class, CartItem::class), version = 3)
 abstract class SafeOrderDB : RoomDatabase() {
 
     abstract fun restaurantDAO(): RestaurantDAO
