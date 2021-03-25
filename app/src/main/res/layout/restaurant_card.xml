@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -21,40 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <HorizontalScrollView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <GridLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-                    <!-- Media -->
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="194dp"
-                        android:contentDescription="TODO"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/dice_2" />
-                    <!-- android:contentDescription="@string/content_description_media" -->
-
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="194dp"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/dice_2" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="194dp"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/dice_2" />
-
-                </GridLayout>
-
-            </HorizontalScrollView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -79,14 +45,6 @@
                     android:textAppearance="?attr/textAppearanceBody2"
                     android:textColor="?android:attr/textColorSecondary" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/filler_text"
-                    android:textAppearance="?attr/textAppearanceBody2"
-                    android:textColor="?android:attr/textColorSecondary" />
-
 
             </LinearLayout>
 
@@ -98,26 +56,18 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/testBTN"
+                    android:id="@+id/rCard_btnShow"
                     style="?attr/borderlessButtonStyle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
-                    android:text="@string/filler_text" />
+                    android:text="@string/show" />
 
-                <com.google.android.material.button.MaterialButton
-                    style="?attr/borderlessButtonStyle"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/rCard_hiddenID"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="32dp"
-                    android:text="@string/filler_text" />
-
-                <CheckBox
-                    android:id="@+id/favorite_icon"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:button="@drawable/sl_favorite_black_24dp"
-                    app:buttonTint="@android:color/black" />
+                    android:visibility="invisible" />
 
             </LinearLayout>
 

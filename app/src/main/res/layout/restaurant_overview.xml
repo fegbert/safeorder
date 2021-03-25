@@ -9,12 +9,16 @@
             type="com.groupthree.safeorder.database.RestaurantViewModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/restaurant_overview_topAppBar"
@@ -30,9 +34,14 @@
 
         <!-- Note: A RecyclerView can also be used -->
         <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            android:layout_marginTop="55dp"
+            android:layout_marginBottom="55dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
             <!-- Scrollable content -->
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -40,19 +49,16 @@
                 android:layout_height="wrap_content">
 
 
-                <ListView
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/restaurantOverview_recyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/restaurantOverviewList"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-                    </ListView>
+                    app:layout_constraintBottom_toBottomOf="parent"></androidx.recyclerview.widget.RecyclerView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.core.widget.NestedScrollView>
 
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

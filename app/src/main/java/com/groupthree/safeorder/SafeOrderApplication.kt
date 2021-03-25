@@ -10,10 +10,11 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
 class SafeOrderApplication() : Application() {
-
     private var context : Context = this
 
-    constructor(context : Context) : this(){this.context = context}
+    constructor(context : Context) : this() {
+        this.context = context
+    }
 
     val applicationScope = CoroutineScope(SupervisorJob())
 

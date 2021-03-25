@@ -2,16 +2,23 @@ package com.groupthree.safeorder
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.groupthree.safeorder.database.SafeOrderDB
 import kotlinx.android.synthetic.main.user_profile.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +51,12 @@ class MainActivity : AppCompatActivity() {
         db = FirebaseDatabase.getInstance()
         dbRef = db?.reference!!.child("Profil")
         loadProfil()*/
+
+    }
+
+    private fun deleteDatabaseFile(databaseName : String) {
+        val databases : File = File(applicationInfo.dataDir + "/databases")
+        val db : File = File(databases, databaseName)
 
     }
 

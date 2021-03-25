@@ -1,47 +1,57 @@
 package com.groupthree.safeorder
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ListView
-import androidx.lifecycle.ViewModel
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import com.groupthree.safeorder.customviews.RestaurantListAdapters
-import com.groupthree.safeorder.database.Restaurant
-import com.groupthree.safeorder.database.RestaurantViewModel
-import com.groupthree.safeorder.database.RestaurantViewModelFactory
-import com.groupthree.safeorder.database.SafeOrderDB
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.groupthree.safeorder.customviews.RestaurantAdapter
+import com.groupthree.safeorder.database.*
 import com.groupthree.safeorder.databinding.RestaurantOverviewBinding
-import com.groupthree.safeorder.databinding.SettingsBinding
+import kotlinx.android.synthetic.main.restaurant_card.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
 
 class RestaurantOverviewFragment : Fragment() {
 
-    private var listView : ListView? = null
-    private var restaurantListAdapters : RestaurantListAdapters? = null
+    private var recyclerView : RecyclerView? = null
+    private var restaurantListAdapters : RestaurantAdapter? = null
     private var resList : List<Restaurant>? = null
+    private val fr = this
+    private var dataSource : RestaurantRepository? = null
+    private var viewModelFactory : RestaurantViewModelFactory? = null
+    private var restaurantViewModel : RestaurantViewModel? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding : RestaurantOverviewBinding = RestaurantOverviewBinding.inflate(inflater)
 
-     /*   val app = requireActivity().application
-        val dataSource = SafeOrderDB.getDatabase(requireContext()).restaurantDAO()
-        val viewModelFactory = RestaurantViewModelFactory(dataSource, app)
-        val restaurantViewModel = ViewModelProvider(this, viewModelFactory).get(RestaurantViewModel::class.java)
-        binding.lifecycleOwner = this
-        binding.restaurantViewModel = restaurantViewModel
-        resList = restaurantViewModel.getRestaurants()
-        listView = binding.restaurantOverviewList
-        if (resList != null) {
-            restaurantListAdapters = RestaurantListAdapters(requireContext(), resList!!)
-            listView?.adapter = restaurantListAdapters
-        }*/
-        return binding.root
+        val getData = lifecycleScope.launch(Dispatchers.IO) {
+            dataSource = SafeOrderApplication(requireContext()).restaurantRepository
+            viewModelFactory = RestaurantViewModelFactory(dataSource!!)
+            restaurantViewModel = ViewModelProvider(fr, viewModelFactory!!).get(RestaurantViewModel::class.java)
+            binding.lifecycleOwner = fr
+            binding.restaurantViewModel = restaurantViewModel
+            resList = restaurantViewModel!!.allRestaurants
+            recyclerView = binding.restaurantOverviewRecyclerview
 
+            fr.requireActivity().runOnUiThread {
+                restaurantListAdapters = RestaurantAdapter(resList!!)
+                recyclerView!!.adapter = restaurantListAdapters
+                recyclerView!!.layoutManager = LinearLayoutManager(activity)
+            }
+        }
+
+        return binding.root
 
     }
 
