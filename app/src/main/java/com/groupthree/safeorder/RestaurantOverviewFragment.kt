@@ -24,7 +24,7 @@ class RestaurantOverviewFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding : RestaurantOverviewBinding = RestaurantOverviewBinding.inflate(inflater)
 
-        val app = requireActivity().application
+     /*   val app = requireActivity().application
         val dataSource = SafeOrderDB.getDatabase(requireContext()).restaurantDAO()
         val viewModelFactory = RestaurantViewModelFactory(dataSource, app)
         val restaurantViewModel = ViewModelProvider(this, viewModelFactory).get(RestaurantViewModel::class.java)
@@ -36,25 +36,10 @@ class RestaurantOverviewFragment : Fragment() {
         if (resList != null) {
             restaurantListAdapters = RestaurantListAdapters(requireContext(), resList!!)
             listView?.adapter = restaurantListAdapters
-        }
+        }*/
         return binding.root
 
-        /*val binding = RestaurantOverviewBinding.inflate(inflater)
-        val controller = findNavController()
 
-        binding.testBTN.setOnClickListener {
-            when(it.id){
-                R.id.testBTN -> {
-                    controller.navigate(R.id.cartFragment)
-                    true
-                }
-                else -> false
-            }
-        }
-
-return binding.root
-
-    */
     }
 
 }

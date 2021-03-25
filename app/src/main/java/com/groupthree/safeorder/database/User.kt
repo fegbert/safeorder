@@ -7,7 +7,7 @@ import java.net.PasswordAuthentication
 
 @Entity
 data class User(
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     var userID : Int,
 
     @ColumnInfo

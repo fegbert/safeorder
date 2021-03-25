@@ -13,5 +13,16 @@ data class CartItem(
     var productID : Int,
 
     @ColumnInfo
-    var units : Int
+    var productName : String,
+
+    @ColumnInfo
+    var productPrice : Int,
+
+    @ColumnInfo
+    var units : Int,
+
+    var restaurantOfProductID : Int
 )
+
+
+

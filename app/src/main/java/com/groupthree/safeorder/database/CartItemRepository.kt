@@ -10,5 +10,6 @@ class CartItemRepository(private val cartItemDAO: CartItemDAO) {
     @WorkerThread
     suspend fun insertCartItem(cartItem: CartItem) = cartItemDAO.insertCartItem(cartItem)
 
-    fun clearCart() = cartItemDAO.clearCart()
+    @WorkerThread
+    suspend fun clearAll() = cartItemDAO.clearAll()
 }

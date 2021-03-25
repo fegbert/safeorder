@@ -10,7 +10,8 @@ class RestaurantRepository(private val restaurantDAO: RestaurantDAO) {
     @WorkerThread
     suspend fun insertRestaurant(restaurant: Restaurant) = restaurantDAO.insertRestaurant(restaurant)
 
-
+    @WorkerThread
+    suspend fun clearAll() = restaurantDAO.clearAll()
 
 
 }

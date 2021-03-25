@@ -16,7 +16,7 @@ class RestaurantProfileFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = RestaurantProfileBinding.inflate(inflater)
 
-        val app = requireActivity().application
+     /*   val app = requireActivity().application
         val dataSource = SafeOrderDB.getDatabase(requireContext()).restaurantDAO()
         val viewModelFactory = RestaurantViewModelFactory(dataSource, app)
         val restaurantViewModel = ViewModelProvider(this, viewModelFactory).get(RestaurantViewModel::class.java)
@@ -29,7 +29,7 @@ class RestaurantProfileFragment : Fragment() {
             binding.rProfileAddress.text = restaurant?.restaurant?.address.toString()
 
             //add products
-        }
+        }*/
         return binding.root
     }
 }
