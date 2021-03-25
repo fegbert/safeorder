@@ -1,6 +1,7 @@
 package com.groupthree.safeorder.database
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,6 +27,7 @@ class RestaurantViewModel(val database : RestaurantDAO, application: Application
         var restaurants : List<Restaurant>? = null
         viewModelScope.launch(Dispatchers.IO) {
             restaurants = database.getAllRestaurants()
+            Log.w("DoIGetStuff", "${restaurants?.size}")
         }
         return restaurants
     }

@@ -33,8 +33,6 @@ class RestaurantListAdapters(var context : Context, var resList : List<Restauran
         rName.text = restaurant.restaurantName
         rAddress.text = restaurant.address.toString()
 
-
-
         return view!!
     }
 }

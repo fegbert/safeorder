@@ -190,6 +190,7 @@ class MapsFragment : Fragment() {
             if (locationPermissionGranted) {
                 map?.isMyLocationEnabled = true
                 map?.uiSettings?.isMyLocationButtonEnabled = true
+                //map?.setMinZoomPreference(DEFAULT_ZOOM.toFloat())
             } else {
                 map?.isMyLocationEnabled = false
                 map?.uiSettings?.isMyLocationButtonEnabled = false
