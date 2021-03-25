@@ -62,7 +62,7 @@ abstract class SafeOrderDB : RoomDatabase() {
                     productDAO.insertProduct(Product(2, "Pizza Tonno", "6.50",
                             "Pizza mit Tomatensauße, Mozarella, Zwiebeln und Thunfisch.", 1))
 
-                    productDAO.insertProduct(Product(3, "Pizza Funghi", "65.0",
+                    productDAO.insertProduct(Product(3, "Pizza Funghi", "6.50",
                             "Pizza mit Champignons und Mischung anderer Pilze.", 1))
 
                     productDAO.insertProduct(Product(4, "Fanta", "2.50",
@@ -96,7 +96,7 @@ abstract class SafeOrderDB : RoomDatabase() {
                     productDAO.insertProduct(Product(11, "Bifteki Ripieno", "17.50",
                             "Saftiges Hackfleisch gefüllt mit Schafskäse und Tomaten, mit Reis und einem Teller Salat.", 3))
 
-                    productDAO.insertProduct(Product(12, "Filetsteak Piperato", "2950",
+                    productDAO.insertProduct(Product(12, "Filetsteak Piperato", "29.50",
                             "Zartes Filetsteak mit einer pikant scharfen Pfefferrahmsauße, Folienkartoffelmit Tzatziki und Salat.", 3))
 
 

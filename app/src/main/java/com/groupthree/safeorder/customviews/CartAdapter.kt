@@ -7,7 +7,6 @@ import android.widget.TextView
 import androidx.lifecycle.LiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
-import com.groupthree.safeorder.database.CartViewModel
 import com.groupthree.safeorder.R
 import com.groupthree.safeorder.database.CartItem
 import androidx.recyclerview.widget.ListAdapter
@@ -40,7 +39,7 @@ class CartAdapter(private val data : List<CartItem>) : RecyclerView.Adapter<Cart
     class CartViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val productNameView: TextView = itemView.findViewById(R.id.cart_product_name)
-        val productPriceView: TextView = itemView.findViewById(R.id.cart_product_price)
+        var productPriceView: TextView = itemView.findViewById(R.id.cart_product_price)
     }
 
 }

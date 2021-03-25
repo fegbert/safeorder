@@ -80,16 +80,6 @@
                         android:gravity="center"
                         android:orientation="horizontal">
 
-                        <com.google.android.material.button.MaterialButton
-                            android:id="@+id/user_profile_info_change_btn"
-                            style="?attr/borderlessButtonStyle"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:text="Ändern" />
-
                     </LinearLayout>
 
                 </LinearLayout>
@@ -175,17 +165,6 @@
                     android:text="@string/contact"
                     />
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_logout"
-                    android:drawableTop="@drawable/ic_logout_white_24dp_1_"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="3dp"
-                    android:text="Log Out"
-                    />
 
             </GridLayout>
 
