@@ -13,6 +13,9 @@ data class CartItem(
     var productID : Int,
 
     @ColumnInfo
+    var productName : String,
+
+    @ColumnInfo
     var productPrice : Int,
 
     @ColumnInfo

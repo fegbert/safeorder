@@ -15,5 +15,5 @@ class SafeOrderApplication : Application() {
     val safeOrderDB by lazy { SafeOrderDB.getDatabase(this, applicationScope) }
     val productRepository by lazy { ProductRepository(safeOrderDB.productDAO()) }
     val restaurantRepository by lazy { RestaurantRepository(safeOrderDB.restaurantDAO()) }
-    val cartItem by lazy { CartItemRepository(safeOrderDB.cartItemDAO()) }
+    val cartItemRepository by lazy { CartItemRepository(safeOrderDB.cartItemDAO()) }
 }

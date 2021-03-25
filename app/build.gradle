@@ -61,6 +61,8 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:20.0.3'
     implementation 'com.google.firebase:firebase-auth-ktx'
     implementation 'com.google.firebase:firebase-database-ktx'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
+
 
     implementation 'com.google.android.libraries.maps:maps:3.1.0-beta'
 
