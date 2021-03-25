@@ -6,8 +6,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class CartItem(
-    @PrimaryKey(autoGenerate = true)
-    var cartID : Int,
 
     @ColumnInfo
     var productID : Int,
@@ -22,7 +20,12 @@ data class CartItem(
     var units : Int,
 
     var restaurantOfProductID : Int
-)
+
+) {
+    @PrimaryKey(autoGenerate = true)
+    var cartID : Int = 0
+}
+
 
 
 

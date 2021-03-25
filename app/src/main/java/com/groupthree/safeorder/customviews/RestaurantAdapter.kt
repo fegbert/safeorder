@@ -30,7 +30,6 @@ class RestaurantAdapter(private val data : List<Restaurant>) : RecyclerView.Adap
         holder.restaurantHiddenIDView.text = item.restaurantID.toString()
         holder.restaurantShowButtonView.setOnClickListener {
             val id = holder.restaurantHiddenIDView.text.toString().toInt()
-            Toast.makeText(it.context, "${holder.restaurantNameView.text.toString()} has been clicked.", Toast.LENGTH_SHORT).show()
             val bundleID = Bundle()
             bundleID.putInt("res_id", id)
             val nav= it.findNavController()

@@ -41,6 +41,7 @@ class RestaurantProfileFragment : Fragment() {
             fr.requireActivity().runOnUiThread {
                 binding.rProfileRestaurantName.text = restaurant?.restaurant?.restaurantName
                 binding.rProfileAddress.text = "${restaurant?.restaurant?.address?.street} ${restaurant?.restaurant?.address?.number} - ${restaurant?.restaurant?.address?.zip} ${restaurant?.restaurant?.address?.city}"
+                binding.topAppBarRestaurantoverview.title = restaurant?.restaurant?.restaurantName
                 val productAdapter = ProductAdapter(products!!)
                 recyclerView!!.adapter = productAdapter
                 recyclerView!!.layoutManager = LinearLayoutManager(activity)

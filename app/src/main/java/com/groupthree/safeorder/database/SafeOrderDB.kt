@@ -9,7 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Restaurant::class, User::class, Product::class, CartItem::class], version = 4)
+@Database(entities = [Restaurant::class, User::class, Product::class, CartItem::class], version = 5)
 abstract class SafeOrderDB : RoomDatabase() {
 
     abstract fun restaurantDAO(): RestaurantDAO

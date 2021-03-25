@@ -48,14 +48,18 @@ class CartFragment : Fragment() {
             cartViewModel = ViewModelProvider(fragment, viewModelFactory!!).get(CartViewModel::class.java)
             resList = cartViewModel!!.allCartItems
             recyclerView = binding.cartRecyclerview
-
+            var total = resList?.sumBy { it.productPrice }
 
             fragment.requireActivity().runOnUiThread {
                 cartAdapter = CartAdapter(resList!!)
                 recyclerView!!.adapter = cartAdapter
                 recyclerView!!.layoutManager = LinearLayoutManager(activity)
+                binding.cartTotalPrice.text = total.toString() + "€"
             }
 
+            binding.cartOrderBtn.setOnClickListener {
+                cartViewModel!!.clearCart()
+            }
 
         }
 

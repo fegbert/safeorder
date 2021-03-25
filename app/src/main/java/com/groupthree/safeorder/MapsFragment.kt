@@ -77,7 +77,6 @@ class MapsFragment : Fragment() {
 
         map?.setOnInfoWindowClickListener { marker ->
             val id = marker.tag as? Int
-            Toast.makeText(context, "${marker.title} has been clicked.", Toast.LENGTH_SHORT).show()
             val bundleID = Bundle()
             bundleID.putInt("res_id", id!!)
             val nav= findNavController()
