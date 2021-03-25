@@ -175,6 +175,18 @@
                     android:text="@string/contact"
                     />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/settings_logout"
+                    android:drawableTop="@drawable/ic_logout_white_24dp_1_"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
+                    android:layout_rowWeight="1"
+                    android:layout_gravity="fill"
+                    android:layout_margin="3dp"
+                    android:text="Log Out"
+                    />
+
             </GridLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
