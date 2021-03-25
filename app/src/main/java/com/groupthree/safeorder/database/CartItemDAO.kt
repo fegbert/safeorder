@@ -13,7 +13,7 @@ interface CartItemDAO {
     suspend fun insertCartItem(cartItem: CartItem)
 
     @Query("SELECT * FROM cartItem")
-    fun getAllCartItems() : Flow<List<CartItem>>
+    fun getAllCartItems() : List<CartItem>
 
     @Query("DELETE FROM cartItem")
     suspend fun clearAll()

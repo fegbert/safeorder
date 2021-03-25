@@ -8,7 +8,7 @@ import java.lang.IllegalArgumentException
 
 class CartViewModel(private val cartItemRepository: CartItemRepository) : ViewModel() {
 
-    val allCartItems: LiveData<List<CartItem>> = cartItemRepository.allCartItems.asLiveData()
+    val allCartItems: List<CartItem> = cartItemRepository.allCartItems
 
     fun insertCartItem(cartItem: CartItem) = viewModelScope.launch {
         cartItemRepository.insertCartItem(cartItem)

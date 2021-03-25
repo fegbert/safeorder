@@ -9,25 +9,29 @@ import com.groupthree.safeorder.database.ProductRepository
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 
-class ProductProfileViewModel(private val productRepository: ProductRepository) :ViewModel() {
+class ProductProfileViewModel(private val productRepository: ProductRepository) : ViewModel() {
 
     val allProducts : List<Product> = productRepository.allProducts
+
 
     fun insertProduct(product: Product) = viewModelScope.launch {
         productRepository.insertProduct(product)
     }
 
-    fun getProduct(productID : Int) = productRepository.getProduct(productID)
+    fun getProduct(productID: Int) = viewModelScope.launch {
+        productRepository.getProduct(productID)
+    }
 
     fun clearProducts() = viewModelScope.launch {
         productRepository.clearAll()
     }
-
 }
 
-class ProductProfileViewModelFactory(private val productRepository: ProductRepository) : ViewModelProvider.Factory{
+
+class ProductProfileViewModelFactory(private val productRepository: ProductRepository) :
+    ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if(modelClass.isAssignableFrom(ProductProfileViewModel::class.java)){
+        if (modelClass.isAssignableFrom(ProductProfileViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             return ProductProfileViewModel(productRepository) as T
         }

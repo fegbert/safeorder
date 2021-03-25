@@ -26,6 +26,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.registration)
 
+
         register_login_btn.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
             //onBackPressed()
