@@ -1,6 +1,8 @@
-package com.groupthree.safeorder.database
+package com.groupthree.safeorder.viewmodels
 
 import androidx.lifecycle.*
+import com.groupthree.safeorder.database.CartItem
+import com.groupthree.safeorder.database.CartItemRepository
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException
 

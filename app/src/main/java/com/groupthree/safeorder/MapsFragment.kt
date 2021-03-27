@@ -26,10 +26,10 @@ import com.google.android.libraries.maps.OnMapReadyCallback
 import com.google.android.libraries.maps.SupportMapFragment
 import com.google.android.libraries.maps.model.*
 import com.groupthree.safeorder.database.Restaurant
-import com.groupthree.safeorder.database.RestaurantViewModel
-import com.groupthree.safeorder.database.RestaurantViewModelFactory
 import com.groupthree.safeorder.database.SafeOrderDB
 import com.groupthree.safeorder.databinding.MapsBinding
+import com.groupthree.safeorder.viewmodels.RestaurantViewModel
+import com.groupthree.safeorder.viewmodels.RestaurantViewModelFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
@@ -102,9 +102,9 @@ class MapsFragment : Fragment() {
         lifecycleScope.launch(Dispatchers.IO) {
             val dataSource = SafeOrderApplication(requireContext()).restaurantRepository
             val viewModelFactory = RestaurantViewModelFactory(dataSource)
-            val restaurantViewModel = ViewModelProvider(fr, viewModelFactory).get(RestaurantViewModel::class.java)
+            val restaurantViewModel = ViewModelProvider(fr, viewModelFactory).get(
+                RestaurantViewModel::class.java)
             binding.lifecycleOwner = fr
-            binding.restaurantViewModel = restaurantViewModel
             resList = restaurantViewModel.allRestaurants
         }
 

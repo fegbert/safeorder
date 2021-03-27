@@ -6,7 +6,7 @@
     <data>
         <variable
             name="restaurantViewModel"
-            type="com.groupthree.safeorder.database.RestaurantViewModel" />
+            type="com.groupthree.safeorder.viewmodels.RestaurantViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

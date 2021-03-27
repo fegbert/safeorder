@@ -27,6 +27,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import com.groupthree.safeorder.database.*
 import com.groupthree.safeorder.databinding.RestaurantProfileBinding
+import com.groupthree.safeorder.viewmodels.CartViewModel
+import com.groupthree.safeorder.viewmodels.CartViewModelFactory
 import kotlinx.coroutines.launch
 
 class CartFragment : Fragment() {

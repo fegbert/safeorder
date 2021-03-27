@@ -28,30 +28,11 @@
         android:name="com.groupthree.safeorder.RestaurantProfileFragment"
         android:label="RestaurantProfileFragment"
         tools:layout="@layout/restaurant_profile"/>
-    <navigation android:id="@+id/userProfileGraph"
-        app:startDestination="@id/userProfileFragment">
-        <fragment
-            android:id="@+id/userProfileFragment"
-            android:name="com.groupthree.safeorder.UserProfileFragment"
-            android:label="UserProfileFragment"
-            tools:layout="@layout/user_profile" >
-            <action
-                android:id="@+id/action_userProfileFragment_to_settingsFragment"
-                app:destination="@id/settingsFragment" />
-        </fragment>
-        <fragment
-            android:id="@+id/settingsFragment"
-            android:name="com.groupthree.safeorder.SettingsFragment"
-            android:label="SettingsFragment"
-            tools:layout="@layout/settings" >
-            <action
-                android:id="@+id/action_settingsFragment_to_userProfileFragment"
-                app:destination="@id/userProfileFragment" />
-        </fragment>
-    </navigation>
+
     <fragment
-        android:id="@+id/notificationsFragment"
-        android:name="com.groupthree.safeorder.NotificationsFragment"
-        android:label="NotificationsFragment"
-        tools:layout="@layout/notifications"/>
+        android:id="@+id/userProfileFragment"
+        android:name="com.groupthree.safeorder.UserProfileFragment"
+        android:label="UserProfileFragment"
+        tools:layout="@layout/user_profile" >
+    </fragment>
 </navigation>

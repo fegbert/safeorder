@@ -18,6 +18,8 @@ import com.groupthree.safeorder.R
 import com.groupthree.safeorder.RestaurantProfileFragment
 import com.groupthree.safeorder.SafeOrderApplication
 import com.groupthree.safeorder.database.*
+import com.groupthree.safeorder.viewmodels.CartViewModel
+import com.groupthree.safeorder.viewmodels.CartViewModelFactory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch

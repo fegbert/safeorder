@@ -1,8 +1,11 @@
-package com.groupthree.safeorder.database
+package com.groupthree.safeorder.viewmodels
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.*
+import com.groupthree.safeorder.database.Restaurant
+import com.groupthree.safeorder.database.RestaurantRepository
+import com.groupthree.safeorder.database.RestaurantWithProducts
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.lang.IllegalArgumentException

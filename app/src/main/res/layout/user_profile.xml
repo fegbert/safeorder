@@ -96,73 +96,18 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <TextView
-                    android:text="@string/settings"
-                    android:textColor="@color/orange_variant"
-                    android:textStyle="bold"
-                    android:textAllCaps="true"
-                    android:textSize="20dp"
-                    android:layout_gravity="center"
-                    android:layout_margin="4dp"/>
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_privacy"
-                    android:drawableTop="@drawable/ic_privacy_tip_white_24dp"
+                    android:id="@+id/user_profile_logout_btn"
+                    android:drawableTop="@drawable/ic_logout_white_24dp_1_"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:layout_rowWeight="1"
                     android:layout_gravity="fill"
                     android:layout_margin="3dp"
-                    android:text="@string/data_privacy"
-                    />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_notifs"
-                    android:drawableTop="@drawable/ic_notifications_white_24dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="3dp"
-                    android:text="@string/notifications"
-                    />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_help"
-                    android:drawableTop="@drawable/ic_help_white_24dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="3dp"
-                    android:text="@string/help"
-                    />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_rating"
-                    android:drawableTop="@drawable/ic_reviews_white_24dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="3dp"
-                    android:text="@string/rate_us"
-                    />
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/settings_contact"
-                    android:drawableTop="@drawable/ic_perm_contact_calendar_white_24dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_columnWeight="1"
-                    android:layout_rowWeight="1"
-                    android:layout_gravity="fill"
-                    android:layout_margin="3dp"
-                    android:text="@string/contact"
+                    android:text="@string/logout"
+                    android:textSize="15dp"
                     />
 
 

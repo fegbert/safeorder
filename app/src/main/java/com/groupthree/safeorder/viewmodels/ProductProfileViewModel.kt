@@ -1,4 +1,4 @@
-package com.groupthree.safeorder
+package com.groupthree.safeorder.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel

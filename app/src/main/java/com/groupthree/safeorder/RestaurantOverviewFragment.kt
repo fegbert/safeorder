@@ -16,6 +16,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.groupthree.safeorder.customviews.RestaurantAdapter
 import com.groupthree.safeorder.database.*
 import com.groupthree.safeorder.databinding.RestaurantOverviewBinding
+import com.groupthree.safeorder.viewmodels.RestaurantViewModel
+import com.groupthree.safeorder.viewmodels.RestaurantViewModelFactory
 import kotlinx.android.synthetic.main.restaurant_card.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -40,7 +42,6 @@ class RestaurantOverviewFragment : Fragment() {
             viewModelFactory = RestaurantViewModelFactory(dataSource!!)
             restaurantViewModel = ViewModelProvider(fr, viewModelFactory!!).get(RestaurantViewModel::class.java)
             binding.lifecycleOwner = fr
-            binding.restaurantViewModel = restaurantViewModel
             resList = restaurantViewModel!!.allRestaurants
             recyclerView = binding.restaurantOverviewRecyclerview
 
