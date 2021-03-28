@@ -26,7 +26,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:title="Name des Restaurants" />
+                app:navigationIcon="@drawable/ic_arrow_back_white_24dp"/>
+
 
         </com.google.android.material.appbar.AppBarLayout>
 
