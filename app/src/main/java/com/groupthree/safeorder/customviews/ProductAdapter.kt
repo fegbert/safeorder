@@ -35,24 +35,40 @@ class ProductAdapter(private val data: List<Product>) :  RecyclerView.Adapter<Pr
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {
         val item = data[position]
         holder.productNameView.text = item.productName
-        holder.productPriceView.text = "${item.productPrice}€"
+        holder.productPriceView.text = "${item.productPrice} €"
         holder.productDescriptionView.text = item.productDescription
         holder.productHiddenIDView.text = item.productID.toString()
+        holder.productHiddenRestaurantIDView.text = item.restaurantOfProductID.toString()
         holder.productAddToCartButton.setOnClickListener {
             val id = holder.productHiddenIDView.text.toString().toInt()
             val price = item.productPrice.split(".")[0].toInt()
             val cartItem = CartItem(productID = id, productName = item.productName, productPrice = price, units = 1, restaurantOfProductID = item.restaurantOfProductID)
             val fr = it.findFragment<RestaurantProfileFragment>()
+            var success = false
 
             fr.lifecycleScope.launch(Dispatchers.IO) {
                 val dataSource = SafeOrderApplication(fr.requireContext()).cartItemRepository
-                val viewModelFactory = CartViewModelFactory(dataSource!!)
-                val cartViewModel = ViewModelProvider(fr, viewModelFactory!!).get(CartViewModel::class.java)
-                cartViewModel.insertCartItem(cartItem)
+                val viewModelFactory = CartViewModelFactory(dataSource)
+                val cartViewModel = ViewModelProvider(fr, viewModelFactory).get(CartViewModel::class.java)
+                val cartList = cartViewModel.allCartItems
+
+                if (cartList.isEmpty() || cartList[0].restaurantOfProductID == cartItem.restaurantOfProductID) {
+                    cartViewModel.insertCartItem(cartItem)
+                    success = true
+                }
+
+                fr.requireActivity().runOnUiThread {
+                    if (!success) {
+                        Toast.makeText(fr.requireContext(), "Gericht kann nicht zum Warenkorb hinzugefügt werden, da es von einem anderen Restaurant ist!", Toast.LENGTH_SHORT).show()
+                        return@runOnUiThread
+                    }
+
+                    Toast.makeText(fr.requireContext(), "Gericht zum Warenkorb hinzugefügt.", Toast.LENGTH_SHORT).show()
+                    val nav = it.findNavController()
+                    nav.navigate(R.id.cartFragment)
+                }
             }
-            Toast.makeText(fr.requireContext(), "Gericht zum Warenkorb hinzugefügt.", Toast.LENGTH_SHORT).show()
-            val nav = it.findNavController()
-            nav.navigate(R.id.cartFragment)
+
         }
     }
 
@@ -64,6 +80,7 @@ class ProductAdapter(private val data: List<Product>) :  RecyclerView.Adapter<Pr
         val productDescriptionView: TextView = itemView.findViewById(R.id.p_profile_description)
         val productAddToCartButton: MaterialButton = itemView.findViewById(R.id.p_profile_addToCart_btn)
         val productHiddenIDView : TextView = itemView.findViewById(R.id.p_profile_hiddenID)
+        val productHiddenRestaurantIDView : TextView = itemView.findViewById(R.id.p_profile_hiddenRes)
 
     }
 

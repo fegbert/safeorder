@@ -29,34 +29,49 @@ import com.groupthree.safeorder.database.*
 import com.groupthree.safeorder.databinding.RestaurantProfileBinding
 import com.groupthree.safeorder.viewmodels.CartViewModel
 import com.groupthree.safeorder.viewmodels.CartViewModelFactory
+import com.groupthree.safeorder.viewmodels.RestaurantViewModel
+import com.groupthree.safeorder.viewmodels.RestaurantViewModelFactory
 import kotlinx.coroutines.launch
 
 class CartFragment : Fragment() {
 
     private var recyclerView : RecyclerView? = null
     private var cartAdapter : CartAdapter? = null
-    private var resList : List<CartItem>? = null
+    private var cartItemList : List<CartItem>? = null
     private val fragment = this
-    private var dataSource : CartItemRepository? = null
-    private var viewModelFactory : CartViewModelFactory? = null
+    private var cartDataSource : CartItemRepository? = null
+    private var cartViewModelFactory : CartViewModelFactory? = null
     private var cartViewModel : CartViewModel? = null
+    private var restaurant : Restaurant? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding: CartBinding = CartBinding.inflate(inflater)
 
-        val getData = lifecycleScope.launch(Dispatchers.IO) {
-            dataSource = SafeOrderApplication(requireContext()).cartItemRepository
-            viewModelFactory = CartViewModelFactory(dataSource!!)
-            cartViewModel = ViewModelProvider(fragment, viewModelFactory!!).get(CartViewModel::class.java)
-            resList = cartViewModel!!.allCartItems
+        lifecycleScope.launch(Dispatchers.IO) {
+            cartDataSource = SafeOrderApplication(requireContext()).cartItemRepository
+            cartViewModelFactory = CartViewModelFactory(cartDataSource!!)
+            cartViewModel = ViewModelProvider(fragment, cartViewModelFactory!!).get(CartViewModel::class.java)
+            cartItemList = cartViewModel!!.allCartItems
+
+            val restaurantDataSource = SafeOrderApplication(requireContext()).restaurantRepository
+            val restaurantViewModelFactory = RestaurantViewModelFactory(restaurantDataSource)
+            val restaurantViewModel = ViewModelProvider(fragment, restaurantViewModelFactory).get(RestaurantViewModel::class.java)
+            if (!cartItemList.isNullOrEmpty()) {
+                restaurant = restaurantViewModel.getRestaurantByID(cartItemList!![0].restaurantOfProductID)
+            }
+
             recyclerView = binding.cartRecyclerview
-            var total = resList?.sumBy { it.productPrice }
+            var total = cartItemList?.sumBy { it.productPrice }
 
             fragment.requireActivity().runOnUiThread {
-                cartAdapter = CartAdapter(resList!!)
+                cartAdapter = CartAdapter(cartItemList!!)
                 recyclerView!!.adapter = cartAdapter
                 recyclerView!!.layoutManager = LinearLayoutManager(activity)
-                binding.cartTotalPrice.text = total.toString() + "€"
+                binding.cartTotalPrice.text = total.toString() + " €"
+
+                if (restaurant != null) {
+                    binding.cartRestaurantName.text = restaurant?.restaurantName
+                }
             }
 
             binding.cartOrderBtn.setOnClickListener {
