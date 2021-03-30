@@ -9,11 +9,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Restaurant::class, User::class, Product::class, CartItem::class], version = 5)
+@Database(entities = [Restaurant::class, Product::class, CartItem::class], version = 6)
 abstract class SafeOrderDB : RoomDatabase() {
 
     abstract fun restaurantDAO(): RestaurantDAO
-    abstract fun userDAO(): UserDAO
     abstract fun productDAO(): ProductDAO
     abstract fun cartItemDAO(): CartItemDAO
 
@@ -25,7 +24,6 @@ abstract class SafeOrderDB : RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch(Dispatchers.IO) {
                     val restaurantDAO = database.restaurantDAO()
-                    val userDAO = database.userDAO()
                     val productDAO = database.productDAO()
                     val cartItemDAO = database.cartItemDAO()
 
@@ -147,29 +145,5 @@ abstract class SafeOrderDB : RoomDatabase() {
         }
     }
 
-/*
-       companion object {
-
-        fun getDatabase(context: Context): SafeOrderDB {
-
-            // if the INSTANCE is not null, then return it,
-            // if it is, then create the database
-
-            return INSTANCE ?: synchronized(this) {
-
-                val instance = Room.databaseBuilder(
-                        context.applicationContext,
-                        SafeOrderDB::class.java,
-                        "safeorder_database"
-                    ).build()
-
-                INSTANCE = instance
-
-                // return instance
-                instance
-            }
-        }
-   }
-*/
 }
 

@@ -76,12 +76,12 @@
                         android:id="@+id/cart_total_price"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="right"
+                        android:gravity="end"
                         android:layout_gravity="center_vertical"
-                        android:text="123"
+
                         android:textStyle="bold"
                         style="@style/TextAppearance.MaterialComponents.Headline6"
-                        android:textSize="20dp"/>
+                        android:textSize="20sp"/>
 
                 </LinearLayout>
 

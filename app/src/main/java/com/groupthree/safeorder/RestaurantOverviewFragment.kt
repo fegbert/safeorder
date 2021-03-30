@@ -45,6 +45,17 @@ class RestaurantOverviewFragment : Fragment() {
             resList = restaurantViewModel!!.allRestaurants
             recyclerView = binding.restaurantOverviewRecyclerview
 
+           /* binding.restaurantOverviewTopAppBar.setOnMenuItemClickListener{
+                when(it.itemId){
+                R.id.logout_btn -> {
+
+                }
+                    else -> false
+
+                }
+
+            }*/
+
             fr.requireActivity().runOnUiThread {
                 restaurantListAdapters = RestaurantAdapter(resList!!)
                 recyclerView!!.adapter = restaurantListAdapters
