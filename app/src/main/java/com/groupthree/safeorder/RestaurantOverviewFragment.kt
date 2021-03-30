@@ -37,7 +37,7 @@ class RestaurantOverviewFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding : RestaurantOverviewBinding = RestaurantOverviewBinding.inflate(inflater)
 
-        val getData = lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             dataSource = SafeOrderApplication(requireContext()).restaurantRepository
             viewModelFactory = RestaurantViewModelFactory(dataSource!!)
             restaurantViewModel = ViewModelProvider(fr, viewModelFactory!!).get(RestaurantViewModel::class.java)
