@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.groupthree.safeorder.customviews.ProductAdapter
 import com.groupthree.safeorder.customviews.RestaurantAdapter
@@ -38,7 +39,12 @@ class RestaurantProfileFragment : Fragment() {
             val restaurant = restaurantViewModel.getRestaurantWithProductsByID(id!!)
             val products = restaurant?.products
             val recyclerView = binding.productRecyclerView
+            val controller = findNavController()
 
+
+            binding.topAppBarRestaurantoverview.setNavigationOnClickListener {
+                controller.navigate(R.id.restaurantOverviewFragment)
+            }
 
             fr.requireActivity().runOnUiThread {
 
