@@ -19,9 +19,6 @@ import kotlinx.android.synthetic.main.registration.*
 
 class LoginActivity : AppCompatActivity() {
 
-    //private lateinit var auth: FirebaseAuth
-    //val mAuth = FirebaseAuth.getInstance()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.login)

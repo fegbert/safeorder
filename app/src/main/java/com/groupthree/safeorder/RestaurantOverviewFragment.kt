@@ -1,5 +1,6 @@
 package com.groupthree.safeorder
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -13,6 +14,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
 import com.groupthree.safeorder.customviews.RestaurantAdapter
 import com.groupthree.safeorder.database.*
 import com.groupthree.safeorder.databinding.RestaurantOverviewBinding
@@ -45,16 +47,6 @@ class RestaurantOverviewFragment : Fragment() {
             resList = restaurantViewModel!!.allRestaurants
             recyclerView = binding.restaurantOverviewRecyclerview
 
-           /* binding.restaurantOverviewTopAppBar.setOnMenuItemClickListener{
-                when(it.itemId){
-                R.id.logout_btn -> {
-
-                }
-                    else -> false
-
-                }
-
-            }*/
 
             fr.requireActivity().runOnUiThread {
                 restaurantListAdapters = RestaurantAdapter(resList!!)

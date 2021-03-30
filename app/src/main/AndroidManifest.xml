@@ -3,6 +3,7 @@
     package="com.groupthree.safeorder">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".SafeOrderApplication"
         android:allowBackup="true"
@@ -11,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SafeOrder">
-        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -21,18 +23,15 @@
             </intent-filter>
         </activity>
 
-        <service
-            android:name=".MyFirebaseMessagingService">
+        <service android:name=".firebase.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyCxm3y9G6YAgyTSz4g7pjMKFpyyLboxkyE"/>
-
+            android:value="AIzaSyCxm3y9G6YAgyTSz4g7pjMKFpyyLboxkyE" />
     </application>
 
 </manifest>

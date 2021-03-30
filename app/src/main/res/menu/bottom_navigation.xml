@@ -26,11 +26,4 @@
         android:menuCategory="secondary"
         app:showAsAction="always"/>
 
-    <item
-        android:id="@+id/userProfileFragment"
-        android:enabled="true"
-        android:icon="@drawable/ic_person_white_24dp"
-        android:title="@string/user"
-        android:menuCategory="secondary"
-        app:showAsAction="always"/>
 </menu>

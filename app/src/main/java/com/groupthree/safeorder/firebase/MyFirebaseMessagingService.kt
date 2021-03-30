@@ -1,4 +1,4 @@
-package com.groupthree.safeorder
+package com.groupthree.safeorder.firebase
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -13,6 +13,8 @@ import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
+import com.groupthree.safeorder.MainActivity
+import com.groupthree.safeorder.R
 
 class MyFirebaseMessagingService : FirebaseMessagingService(){
 

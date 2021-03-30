@@ -26,7 +26,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:menu="@menu/restaurant_overview_top_app_bar"
                 app:title="@string/restaurants_appbar_title" />
 
 

@@ -29,10 +29,4 @@
         android:label="RestaurantProfileFragment"
         tools:layout="@layout/restaurant_profile"/>
 
-    <fragment
-        android:id="@+id/userProfileFragment"
-        android:name="com.groupthree.safeorder.UserProfileFragment"
-        android:label="UserProfileFragment"
-        tools:layout="@layout/user_profile" >
-    </fragment>
 </navigation>

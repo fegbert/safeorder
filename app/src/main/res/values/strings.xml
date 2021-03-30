@@ -41,4 +41,9 @@
     <string name="quantity_number">Mengenanzahl</string>
     <string name="map_id">AIzaSyCxm3y9G6YAgyTSz4g7pjMKFpyyLboxkyE</string>
     <string name="show">Anzeigen</string>
+    <string name="checkFirstName">Bitte Vorname eingeben!</string>
+    <string name="checkLastName">Bitte Nachname eingeben!</string>
+    <string name="checkEmail">Bitte E-Mail eingeben!</string>
+    <string name="checkPassword">Bitte Passwort eingeben!</string>
+    <string name="success_register">Danke für Ihre Registrierung!</string>
 </resources>
