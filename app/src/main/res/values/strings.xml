@@ -46,4 +46,5 @@
     <string name="checkEmail">Bitte E-Mail eingeben!</string>
     <string name="checkPassword">Bitte Passwort eingeben!</string>
     <string name="success_register">Danke für Ihre Registrierung!</string>
+    <string name="success_login">Sie haben sich erfolgreich angemeldet.</string>
 </resources>

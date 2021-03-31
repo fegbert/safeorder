@@ -16,48 +16,46 @@ import com.google.firebase.messaging.RemoteMessage
 import com.groupthree.safeorder.MainActivity
 import com.groupthree.safeorder.R
 
-class MyFirebaseMessagingService : FirebaseMessagingService(){
+class MyFirebaseCloudMessaging : FirebaseMessagingService(){
 
-    private val TAG = "FireBaseMessagingService"
-    var NOTIFICATION_CHANNEL_ID = "com.groupthree.safeorder"
-    val NOTIFICATION_ID = 100
+    private val tag = "FireBaseMessagingService"
+    private var notificationChannelId = "com.groupthree.safeorder"
+    private val notificationId = 100
 
 
-    override fun onMessageReceived(p0: RemoteMessage) {
-        super.onMessageReceived(p0)
+    override fun onMessageReceived(msg: RemoteMessage) {
+        super.onMessageReceived(msg)
         Log.e("message", "Message received.")
 
-        if (p0.data.size > 0) {
-            val title = p0.data["title"]
-            val body = p0.data["body"]
+        if (msg.data.isNotEmpty()) {
+            val title = msg.data["title"]
+            val body = msg.data["body"]
             showNotification(applicationContext, title, body)
         } else {
-            val title = p0.notification!!.title
-            val body = p0.notification!!.body
+            val title = msg.notification!!.title
+            val body = msg.notification!!.body
             showNotification(applicationContext, title, body)
         }
     }
 
-    override fun onNewToken(p0: String) {
-        super.onNewToken(p0)
+    override fun onNewToken(token: String) {
+        super.onNewToken(token)
         Log.e("token", "New token.")
     }
 
-    fun showNotification(
-            context: Context,
-            title: String?,
-            message: String?
-    ) {
-        val ii: Intent
-        ii = Intent(context, MainActivity::class.java)
-        ii.data = Uri.parse("custom://" + System.currentTimeMillis())
-        ii.action = "actionstring" + System.currentTimeMillis()
-        ii.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
-        val pi =
-                PendingIntent.getActivity(context, 0, ii, PendingIntent.FLAG_UPDATE_CURRENT)
-        val notification: Notification
+    private fun showNotification(context: Context, title: String?, message: String?) {
+
+        val intent = Intent(context, MainActivity::class.java)
+        intent.data = Uri.parse("custom://" + System.currentTimeMillis())
+        intent.action = "actionstring" + System.currentTimeMillis()
+        intent.flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+
+        val pi = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+
+        val notification : Notification
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            notification = NotificationCompat.Builder(context, NOTIFICATION_CHANNEL_ID)
+            notification = NotificationCompat.Builder(context, notificationChannelId)
                     .setOngoing(true)
                     .setSmallIcon(getNotificationIcon())
                     .setContentText(message)
@@ -68,16 +66,18 @@ class MyFirebaseMessagingService : FirebaseMessagingService(){
                     .setWhen(System.currentTimeMillis())
                     .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                     .setContentTitle(title).build()
-            val notificationManager = context.getSystemService(
-                    Context.NOTIFICATION_SERVICE
-            ) as NotificationManager
+
+            val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
             val notificationChannel = NotificationChannel(
-                    NOTIFICATION_CHANNEL_ID,
+                    notificationChannelId,
                     title,
                     NotificationManager.IMPORTANCE_DEFAULT
             )
+
             notificationManager.createNotificationChannel(notificationChannel)
-            notificationManager.notify(NOTIFICATION_ID, notification)
+            notificationManager.notify(notificationId, notification)
+
         } else {
             notification = NotificationCompat.Builder(context)
                     .setSmallIcon(getNotificationIcon())
@@ -86,17 +86,13 @@ class MyFirebaseMessagingService : FirebaseMessagingService(){
                     .setContentIntent(pi)
                     .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                     .setContentTitle(title).build()
-            val notificationManager = context.getSystemService(
-                    Context.NOTIFICATION_SERVICE
-            ) as NotificationManager
-            notificationManager.notify(NOTIFICATION_ID, notification)
+            val notificationManager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+            notificationManager.notify(notificationId, notification)
         }
     }
 
-
     private fun getNotificationIcon(): Int {
-        val useWhiteIcon =
-                Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-        return if (useWhiteIcon) R.mipmap.ic_launcher else R.mipmap.ic_launcher
+        return R.mipmap.ic_launcher
     }
 }
